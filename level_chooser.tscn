@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://tkaojaxwy3u0"]
+
+[ext_resource type="Script" uid="uid://byj2drmysfoxu" path="res://control.gd" id="1_edcld"]
+
+[node name="LevelChooser" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+script = ExtResource("1_edcld")
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

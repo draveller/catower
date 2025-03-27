@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfq2ypb1sml1d"]
+
+[ext_resource type="Script" uid="uid://byj2drmysfoxu" path="res://control.gd" id="1_edcld"]
+[ext_resource type="PackedScene" uid="uid://cgbf7n6103jn5" path="res://level_button.tscn" id="2_5ooyq"]
+
+[node name="LevelChooser" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+script = ExtResource("1_edcld")
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Node2D" type="Node2D" parent="Control/CenterContainer"]
+
+[node name="TextureButton" parent="Control/CenterContainer/Node2D" instance=ExtResource("2_5ooyq")]

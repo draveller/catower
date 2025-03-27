@@ -1,0 +1,191 @@
+[gd_scene load_steps=33 format=3 uid="uid://bg1w2ylix2cni"]
+
+[ext_resource type="Script" uid="uid://biobuph02c0p4" path="res://scenes/character/crabby.gd" id="1_p4eqo"]
+[ext_resource type="Texture2D" uid="uid://hfdmldivwimb" path="res://assets/sprites/crabby/07-Attack/Attack 01.png" id="2_2j0ei"]
+[ext_resource type="Texture2D" uid="uid://p1h6lv2i1c4x" path="res://assets/sprites/crabby/01-Idle/Idle 01.png" id="2_3m7li"]
+[ext_resource type="Texture2D" uid="uid://dbgwepx3y8dau" path="res://assets/sprites/crabby/01-Idle/Idle 02.png" id="3_kn14d"]
+[ext_resource type="Texture2D" uid="uid://nldvxrgray3m" path="res://assets/sprites/crabby/07-Attack/Attack 02.png" id="3_y4u5s"]
+[ext_resource type="Texture2D" uid="uid://b2wmfdpiwahr7" path="res://assets/sprites/crabby/01-Idle/Idle 03.png" id="4_4lt7f"]
+[ext_resource type="Texture2D" uid="uid://djy6asn12xy2" path="res://assets/sprites/crabby/07-Attack/Attack 03.png" id="4_kf5pw"]
+[ext_resource type="Texture2D" uid="uid://bngpexg85ps61" path="res://assets/sprites/crabby/01-Idle/Idle 04.png" id="5_2bbym"]
+[ext_resource type="Texture2D" uid="uid://qx4ui7sfbc1w" path="res://assets/sprites/crabby/07-Attack/Attack 04.png" id="5_rauoq"]
+[ext_resource type="Texture2D" uid="uid://bmyg6ah0mxtju" path="res://assets/sprites/crabby/hurt/Hurt 01.png" id="6_5d0wy"]
+[ext_resource type="Texture2D" uid="uid://dnfndmbmdnfjp" path="res://assets/sprites/crabby/01-Idle/Idle 05.png" id="6_dab4g"]
+[ext_resource type="Texture2D" uid="uid://qwro11ivtf0q" path="res://assets/sprites/crabby/09-Dead Hit/Dead Hit 01.png" id="6_iav5q"]
+[ext_resource type="Texture2D" uid="uid://btr840w7pm0am" path="res://assets/sprites/crabby/09-Dead Hit/Dead Hit 02.png" id="7_ibvvh"]
+[ext_resource type="Texture2D" uid="uid://dohcry6fehgoc" path="res://assets/sprites/crabby/01-Idle/Idle 06.png" id="7_mpjv4"]
+[ext_resource type="Texture2D" uid="uid://d0nqmb7p0u6em" path="res://assets/sprites/crabby/hurt/Hurt 02.png" id="7_pusow"]
+[ext_resource type="Texture2D" uid="uid://bwhqhdmcbqwqe" path="res://assets/sprites/crabby/hurt/Hurt 03.png" id="8_3p88c"]
+[ext_resource type="Texture2D" uid="uid://brqx5ghb8brym" path="res://assets/sprites/crabby/09-Dead Hit/Dead Hit 03.png" id="8_rhs40"]
+[ext_resource type="Texture2D" uid="uid://btsukla1lu8c7" path="res://assets/sprites/crabby/01-Idle/Idle 07.png" id="8_v1bl8"]
+[ext_resource type="Texture2D" uid="uid://dok3qwyyqof3w" path="res://assets/sprites/crabby/01-Idle/Idle 08.png" id="9_p4eqo"]
+[ext_resource type="Texture2D" uid="uid://ces3m4isbr8s7" path="res://assets/sprites/crabby/hurt/Hurt 04.png" id="9_qulm4"]
+[ext_resource type="Texture2D" uid="uid://ugyaods0cdh2" path="res://assets/sprites/crabby/09-Dead Hit/Dead Hit 04.png" id="9_st8n4"]
+[ext_resource type="Texture2D" uid="uid://rvdahxg870q2" path="res://assets/sprites/crabby/01-Idle/Idle 09.png" id="10_n3do6"]
+[ext_resource type="Texture2D" uid="uid://bkbdq1on2qgy0" path="res://assets/sprites/crabby/02-Run/Run 01.png" id="11_p4eqo"]
+[ext_resource type="Texture2D" uid="uid://d1xgfhhqro5kl" path="res://assets/sprites/crabby/02-Run/Run 02.png" id="12_n3do6"]
+[ext_resource type="Texture2D" uid="uid://bnk3u4jefubqe" path="res://assets/sprites/crabby/02-Run/Run 03.png" id="13_k5477"]
+[ext_resource type="Texture2D" uid="uid://cj4ro47rp18bp" path="res://assets/sprites/crabby/02-Run/Run 04.png" id="14_o3fc5"]
+[ext_resource type="Texture2D" uid="uid://bggl2sgachcxk" path="res://assets/sprites/crabby/02-Run/Run 05.png" id="15_2j0ei"]
+[ext_resource type="Texture2D" uid="uid://b7d24srq824s2" path="res://assets/sprites/crabby/02-Run/Run 06.png" id="16_y4u5s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5477"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o3fc5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2j0ei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_y4u5s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kf5pw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rauoq")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_iav5q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ibvvh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rhs40")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_st8n4")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_5d0wy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pusow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3p88c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qulm4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5d0wy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pusow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3p88c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qulm4")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3m7li")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kn14d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4lt7f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2bbym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dab4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mpjv4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_v1bl8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_p4eqo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_n3do6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_p4eqo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_n3do6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_k5477")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_o3fc5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_2j0ei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_y4u5s")
+}],
+"loop": true,
+"name": &"move",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2j0ei"]
+size = Vector2(64, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4u5s"]
+size = Vector2(22, 19)
+
+[node name="Crabby" type="CharacterBody2D"]
+collision_mask = 3
+script = ExtResource("1_p4eqo")
+metadata/_custom_type_script = "uid://bo22yvclsncf8"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k5477")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o3fc5")
+animation = &"dead"
+autoplay = "idle"
+frame = 3
+frame_progress = 1.0
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("RectangleShape2D_2j0ei")
+
+[node name="HurtArea" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea"]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_y4u5s")
+
+[node name="InvincibleTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true

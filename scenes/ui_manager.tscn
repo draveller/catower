@@ -1,0 +1,266 @@
+[gd_scene load_steps=7 format=3 uid="uid://g7nyvcfgg084"]
+
+[ext_resource type="Texture2D" uid="uid://ctss2yvj0trda" path="res://assets/ui/屏幕截图 2025-03-27 013540.png" id="1_dj8aq"]
+[ext_resource type="Script" uid="uid://chfxtklemvc5a" path="res://scenes/ui_manager.gd" id="1_i1gbh"]
+[ext_resource type="Texture2D" uid="uid://c48yulhobeust" path="res://assets/background/SuitCat1.png" id="3_e6fyy"]
+[ext_resource type="Texture2D" uid="uid://vx8cknqtrxbk" path="res://assets/background/Sky.png" id="4_j6a7c"]
+[ext_resource type="Script" uid="uid://byj2drmysfoxu" path="res://control.gd" id="5_scoti"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ro3t7"]
+font_size = 36
+
+[node name="UIManager" type="CanvasLayer"]
+script = ExtResource("1_i1gbh")
+
+[node name="MainUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LoginUI" type="Node2D" parent="MainUI"]
+
+[node name="TextureRect" type="TextureRect" parent="MainUI/LoginUI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1216.0
+offset_bottom = 832.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.58, 1.58)
+texture = ExtResource("3_e6fyy")
+
+[node name="LoginBox" type="Panel" parent="MainUI/LoginUI"]
+z_index = 20
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 560.0
+offset_top = 340.0
+offset_right = 1360.0
+offset_bottom = 740.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleBox" type="Panel" parent="MainUI/LoginUI/LoginBox"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = -48.0
+offset_right = 150.0
+offset_bottom = 52.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="MainUI/LoginUI/LoginBox/TitleBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "登  录"
+label_settings = SubResource("LabelSettings_ro3t7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UserName" type="LineEdit" parent="MainUI/LoginUI/LoginBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -96.0
+offset_right = 210.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "请输入用户名"
+
+[node name="Password" type="LineEdit" parent="MainUI/LoginUI/LoginBox"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -210.0
+offset_top = -200.0
+offset_right = 210.0
+offset_bottom = -130.0
+grow_horizontal = 2
+grow_vertical = 0
+placeholder_text = "请输入密码"
+secret = true
+secret_character = "*"
+
+[node name="LoginButton" type="Button" parent="MainUI/LoginUI/LoginBox"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -94.0
+offset_right = 90.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 28
+text = "确  定"
+
+[node name="UserNameIcon" type="TextureRect" parent="MainUI/LoginUI/LoginBox"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 168.0
+offset_bottom = 172.0
+texture = ExtResource("1_dj8aq")
+expand_mode = 1
+
+[node name="PasswordIcon" type="TextureRect" parent="MainUI/LoginUI/LoginBox"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 203.0
+offset_right = 168.0
+offset_bottom = 267.0
+texture = ExtResource("1_dj8aq")
+expand_mode = 1
+
+[node name="MenuUI" type="Node2D" parent="MainUI"]
+
+[node name="Panel" type="Panel" parent="MainUI/MenuUI"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="StartBattleButton" type="Button" parent="MainUI/MenuUI/Panel"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 379.0
+offset_right = 625.0
+offset_bottom = 559.0
+rotation = -0.261799
+theme_override_font_sizes/font_size = 46
+text = "开始游戏"
+
+[node name="UpgradeButton" type="Button" parent="MainUI/MenuUI/Panel"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 599.0
+offset_right = 625.0
+offset_bottom = 779.0
+rotation = -0.261799
+theme_override_font_sizes/font_size = 46
+text = "升级"
+
+[node name="TeamManageButton" type="Button" parent="MainUI/MenuUI/Panel"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 819.0
+offset_right = 625.0
+offset_bottom = 999.0
+rotation = -0.261799
+theme_override_font_sizes/font_size = 46
+text = "队伍编组"
+
+[node name="SettingUI" type="Node2D" parent="MainUI"]
+
+[node name="RestartButton" type="Button" parent="MainUI/SettingUI"]
+offset_left = 1768.0
+offset_top = 64.0
+offset_right = 1856.0
+offset_bottom = 152.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="MainUI/SettingUI/RestartButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -52.0
+offset_right = 52.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_j6a7c")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelChooseUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+script = ExtResource("5_scoti")
+
+[node name="CenterContainer" type="CenterContainer" parent="LevelChooseUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MonsterPickUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 234.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MonsterPickUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -206.0
+offset_bottom = -283.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="MonsterPickUI/HBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+color = Color(0.249961, 0.392697, 0.639, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="MonsterPickUI/HBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+color = Color(0.249961, 0.392697, 0.639, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="MonsterPickUI/HBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+color = Color(0.249961, 0.392697, 0.639, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="MonsterPickUI/HBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+color = Color(0.249961, 0.392697, 0.639, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="MonsterPickUI/HBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+color = Color(0.249961, 0.392697, 0.639, 1)
