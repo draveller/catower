@@ -1,0 +1,7 @@
+extends Node
+
+const GROUND:=1
+const LEFT_TEAM_MONSTER:=2
+const LEFT_TEAM_TOWER:=3
+const RIGHT_TEAM_MONSTER:=4
+const RIGHT_TEAM_TOWER:=5

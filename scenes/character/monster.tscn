@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://6mtip3ruyn"]
+
+[ext_resource type="Script" uid="uid://chxg373nuasqx" path="res://scenes/character/monster.gd" id="1_07ytt"]
+[ext_resource type="Script" uid="uid://bo71myvb36jvm" path="res://scripts/hitbox.gd" id="2_rmx7a"]
+[ext_resource type="Script" uid="uid://b35shkyqn8swi" path="res://scripts/hurtbox.gd" id="3_4gh8x"]
+[ext_resource type="Texture2D" uid="uid://kkh0lkhgjugh" path="res://assets/ui/health_bar/grey_bar.png" id="4_y2cci"]
+[ext_resource type="Texture2D" uid="uid://caw8aulp5xk2v" path="res://assets/ui/health_bar/read_bar.png" id="5_o6s0l"]
+[ext_resource type="Script" uid="uid://t2ic21pwboxu" path="res://scripts/state_machine.gd" id="6_molyk"]
+[ext_resource type="Script" uid="uid://bonqaygc8t68f" path="res://scripts/stats.gd" id="7_wcxyx"]
+
+[node name="Monster" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_07ytt")
+
+[node name="Graphics" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Graphics"]
+
+[node name="Hitbox" type="Area2D" parent="Graphics"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_rmx7a")
+
+[node name="Hurtbox" type="Area2D" parent="Graphics"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("3_4gh8x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+deterministic = true
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 32.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+value = 100.0
+texture_under = ExtResource("4_y2cci")
+texture_progress = ExtResource("5_o6s0l")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("6_molyk")
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource("7_wcxyx")

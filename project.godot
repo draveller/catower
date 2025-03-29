@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SignalBus="*res://scripts/signal_bus.gd"
 SaveManager="*res://scenes/save_manager.gd"
+LayerConst="*res://scripts/layer_const.gd"
 
 [display]
 
@@ -53,8 +54,10 @@ pointing/emulate_touch_from_mouse=true
 [layer_names]
 
 2d_physics/layer_1="ground"
-2d_physics/layer_2="monster"
-2d_physics/layer_3="tower"
+2d_physics/layer_2="left_team_monster"
+2d_physics/layer_3="left_team_tower"
+2d_physics/layer_4="right_team_monster"
+2d_physics/layer_5="right_team_tower"
 
 [rendering]
 

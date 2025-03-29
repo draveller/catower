@@ -1,108 +1,44 @@
-class_name MonsterStateMachine
+class_name StateMachine
 extends Node
 
-# 状态枚举
-enum State {
-    IDLE, # 空闲状态(仅限出生后的一小会)
-    MOVE, # 移动状态
-    ATTACK, # 攻击状态
-    HURT, # 受伤状态, 在此状态中即为无敌时间
-    DEAD, # 死亡状态
-}
+# 特殊常量，表示保持当前状态不变
+const KEEP_CURRENT := -1
 
-# 当前状态
-var current_state: State = State.IDLE
-# 状态机所有者（怪物实例）
-var monster: BaseMonster
-# 状态计时器
-var state_timer: float = 0.0
+# 当前状态索引，设置时会触发状态转换
+var current_state: int = -1:
+    set(v):
+        # 调用所有者的状态转换处理函数
+        owner.transition_state(current_state, v)
+        # 更新当前状态
+        current_state = v
+        # 重置状态计时器
+        state_time = 0
 
-# 状态持续时间
-var IDLE_TIME := randf_range(0.5, 1.0)
-# 无敌时间计时器
-var invincible_timer: SceneTreeTimer
-
-# 指示当前是否应该作出攻击行为
-var should_attack = false
-# 指示当前是否应该作出受伤行为
-var is_in_hurt_area = false
-
-var attacker:BaseMonster
-## 初始化函数
-func _init(monster_instance: BaseMonster) -> void:
-    monster = monster_instance
-
-    # 连接碰撞信号
-    monster.attack_area.body_entered.connect(_on_attack_area_body_entered)
-    monster.attack_area.body_exited.connect(_on_attack_area_body_exited)
-    monster.hurt_area.area_entered.connect(_on_hurt_area_area_entered)
-    monster.hurt_area.area_exited.connect(_on_hurt_area_exited)
+# 记录当前状态持续时间(秒)
+var state_time: float
 
 
-# 攻击区域检测到敌人进入
-func _on_attack_area_body_entered(body: Node2D) -> void:
-    if monster.is_enemy(body):
-        should_attack = true
-
-# 攻击区域检测到敌人退出
-func _on_attack_area_body_exited(body: Node2D) -> void:
-    if monster.is_enemy(body):
-        should_attack = false
-
-# 受伤区域检测到攻击
-func _on_hurt_area_area_entered(area: Area2D) -> void:
-    if monster.is_enemy(area) and area.owner.mc.current_state == State.ATTACK:
-        attacker = area.owner
-        is_in_hurt_area = true
-
-func _on_hurt_area_exited(area: Area2D) -> void:
-    if monster.is_enemy(area):
-        is_in_hurt_area = false
-
-func should_be_hurt() -> bool:
-    return is_in_hurt_area and monster.invincible_timer.get_time_left() <= 0
+# 节点准备就绪时初始化状态机
+func _ready() -> void:
+    # 等待所有者节点准备就绪
+    await owner.ready
+    # 设置初始状态(通常为0)
+    current_state = 0
 
 
-# 状态机更新函数
-func update(delta: float) -> void:
-    state_timer += delta
-    match current_state:
-        State.IDLE:
-            print("%s: 空闲"%monster.name)
-            if state_timer >= IDLE_TIME:
-                current_state = State.MOVE
-                monster.move()
-                state_timer = 0.0
-        State.MOVE:
-            print("%s: 移动"%monster.name)
-            if should_be_hurt():
-                current_state = State.HURT
-                monster.hurt(attacker.attack_power)
-            if should_attack:
-                current_state = State.ATTACK
-                monster.attack()
-        State.ATTACK:
-            print("%s: 攻击"%monster.name)
-            if should_be_hurt():
-                current_state = State.HURT
-                monster.hurt(attacker.attack_power)
-            elif not should_attack:
-                current_state = State.MOVE
-                monster.move()
-            elif not monster.sprite.is_playing():
-                monster.attack()
-            elif not should_attack:
-                current_state = State.MOVE
-                monster.move()
-        State.HURT:
-            print("%s: 受伤"%monster.name)
-            if monster.current_health <= 0:
-                current_state = State.DEAD
-                return
-            if monster.invincible_timer.get_time_left() <= 0:
-                current_state = State.MOVE
-                monster.move()
-                state_timer = 0.0  # 重置状态计时器
-        State.DEAD:
-            print("%s: 死亡"%monster.name)
-            monster.dead()
+# 物理处理循环，每帧调用
+func _physics_process(delta: float) -> void:
+    # 状态转换循环，直到状态稳定
+    while true:
+        # 从所有者获取下一个状态
+        var next := owner.get_next_state(current_state) as int
+        # 如果返回KEEP_CURRENT，则保持当前状态
+        if next == KEEP_CURRENT:
+            break
+        # 否则转换到新状态(会触发setter)
+        current_state = next
+
+    # 调用所有者的物理状态更新函数
+    owner.tick_physics(current_state, delta)
+    # 更新状态持续时间
+    state_time += delta

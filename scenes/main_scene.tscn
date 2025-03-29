@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://blbxuts3r3hlw"]
+[gd_scene load_steps=12 format=4 uid="uid://blbxuts3r3hlw"]
 
 [ext_resource type="PackedScene" uid="uid://g7nyvcfgg084" path="res://scenes/ui/ui_manager.tscn" id="2_c16ls"]
 [ext_resource type="Texture2D" uid="uid://c0jjgsubpy47b" path="res://assets/tiles/Terrain.png" id="3_18nlu"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dgfc3pkk62ofl" path="res://scenes/tower/tower.tscn" id="6_e1cbu"]
 [ext_resource type="Script" uid="uid://c76adbyeal46l" path="res://scripts/signal_bus.gd" id="6_rt2n2"]
 [ext_resource type="Script" uid="uid://bdefvl56gk1lj" path="res://scenes/save_manager.gd" id="7_c16ls"]
+[ext_resource type="Script" uid="uid://bx2vu2472tlc1" path="res://scripts/layer_const.gd" id="8_c1pb6"]
+[ext_resource type="PackedScene" uid="uid://bnhngvgub0ivy" path="res://scenes/character/knight.tscn" id="10_6wevv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
 texture = ExtResource("3_18nlu")
@@ -428,5 +430,15 @@ script = ExtResource("6_rt2n2")
 
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("7_c16ls")
+
+[node name="LayerConst" type="Node" parent="."]
+script = ExtResource("8_c1pb6")
+
+[node name="Knight" parent="." instance=ExtResource("10_6wevv")]
+position = Vector2(8, -64)
+
+[node name="Knight2" parent="." instance=ExtResource("10_6wevv")]
+position = Vector2(336, -216)
+direction = -1
 
 [connection signal="battle_entered" from="SignalBus" to="DragableCamera" method="_on_battle_entered"]
