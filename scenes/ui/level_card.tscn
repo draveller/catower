@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cgbf7n6103jn5"]
 
 [ext_resource type="Texture2D" uid="uid://vx8cknqtrxbk" path="res://assets/background/Sky.png" id="1_j8bpn"]
-[ext_resource type="Script" uid="uid://cnjwfs156gmgx" path="res://texture_button.gd" id="1_k6cd2"]
+[ext_resource type="Script" uid="uid://cnjwfs156gmgx" path="res://scenes/ui/level_card.gd" id="1_k6cd2"]
 
 [node name="TextureButton" type="TextureButton"]
 offset_right = 480.0

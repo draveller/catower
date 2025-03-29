@@ -15,6 +15,11 @@ run/main_scene="uid://blbxuts3r3hlw"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SignalBus="*res://scripts/signal_bus.gd"
+SaveManager="*res://scenes/save_manager.gd"
+
 [display]
 
 window/size/viewport_width=1920

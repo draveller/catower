@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://tkaojaxwy3u0"]
 
-[ext_resource type="Script" uid="uid://byj2drmysfoxu" path="res://control.gd" id="1_edcld"]
+[ext_resource type="Script" uid="uid://byj2drmysfoxu" path="res://scenes/ui/level_chooser.gd" id="1_edcld"]
 
 [node name="LevelChooser" type="CanvasLayer"]
 

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgfc3pkk62ofl"]
+
+[ext_resource type="Texture2D" uid="uid://cm4ukwd1xsic3" path="res://assets/sprites/tower/t1.png" id="1_k1sas"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vedim"]
+size = Vector2(256, 768)
+
+[node name="Tower" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(512, 248)
+shape = SubResource("RectangleShape2D_vedim")
+
+[node name="T1" type="Sprite2D" parent="."]
+position = Vector2(512, 248)
+texture = ExtResource("1_k1sas")
+region_enabled = true
+region_rect = Rect2(128, 0, 256, 768)

@@ -13,7 +13,7 @@ enum State {
 # 当前状态
 var current_state: State = State.IDLE
 # 状态机所有者（怪物实例）
-var monster: BaseCharacter
+var monster: BaseMonster
 # 状态计时器
 var state_timer: float = 0.0
 
@@ -27,8 +27,9 @@ var should_attack = false
 # 指示当前是否应该作出受伤行为
 var is_in_hurt_area = false
 
+var attacker:BaseMonster
 ## 初始化函数
-func _init(monster_instance: BaseCharacter) -> void:
+func _init(monster_instance: BaseMonster) -> void:
     monster = monster_instance
 
     # 连接碰撞信号
@@ -51,6 +52,7 @@ func _on_attack_area_body_exited(body: Node2D) -> void:
 # 受伤区域检测到攻击
 func _on_hurt_area_area_entered(area: Area2D) -> void:
     if monster.is_enemy(area) and area.owner.mc.current_state == State.ATTACK:
+        attacker = area.owner
         is_in_hurt_area = true
 
 func _on_hurt_area_exited(area: Area2D) -> void:
@@ -64,21 +66,18 @@ func should_be_hurt() -> bool:
 # 状态机更新函数
 func update(delta: float) -> void:
     state_timer += delta
-
     match current_state:
         State.IDLE:
             print("%s: 空闲"%monster.name)
-        # 空闲状态下如果经过了一段时间, 就进行移动
             if state_timer >= IDLE_TIME:
                 current_state = State.MOVE
                 monster.move()
                 state_timer = 0.0
         State.MOVE:
             print("%s: 移动"%monster.name)
-        # 移动状态下, 持续检测攻击和受击, 并作出相应动作
             if should_be_hurt():
                 current_state = State.HURT
-                monster.hurt(20)
+                monster.hurt(attacker.attack_power)
             if should_attack:
                 current_state = State.ATTACK
                 monster.attack()
@@ -86,8 +85,11 @@ func update(delta: float) -> void:
             print("%s: 攻击"%monster.name)
             if should_be_hurt():
                 current_state = State.HURT
-                monster.hurt(20)
-            elif should_attack and not monster.animated_sprite.is_playing():
+                monster.hurt(attacker.attack_power)
+            elif not should_attack:
+                current_state = State.MOVE
+                monster.move()
+            elif not monster.sprite.is_playing():
                 monster.attack()
             elif not should_attack:
                 current_state = State.MOVE
@@ -100,6 +102,7 @@ func update(delta: float) -> void:
             if monster.invincible_timer.get_time_left() <= 0:
                 current_state = State.MOVE
                 monster.move()
+                state_timer = 0.0  # 重置状态计时器
         State.DEAD:
             print("%s: 死亡"%monster.name)
             monster.dead()

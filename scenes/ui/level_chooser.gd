@@ -36,7 +36,7 @@ func create_center_point() -> void:
 
 func create_level_buttons() -> void:
     for i in range(level_count):
-        var button = preload("res://level_button.tscn").instantiate()
+        var button = preload("res://scenes/ui/level_card.tscn").instantiate()
         rotation_container.add_child(button)
         button.level_number = i + 1
         button.angle = (2 * PI * i) / level_count
@@ -95,7 +95,7 @@ func _input(event: InputEvent) -> void:
 
     if event is InputEventMouseMotion:
         # 检查鼠标是否在任何按钮上
-        var mouse_pos = get_local_mouse_position()
+        var _mouse_pos = get_local_mouse_position()
         is_on_button = false
         for button in get_buttons():
             if button.get_global_rect().has_point(button.get_global_mouse_position()):

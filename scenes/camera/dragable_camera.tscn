@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bb72d0r1pb1ki"]
 
-[ext_resource type="Script" uid="uid://dj3qubsvd6stq" path="res://scenes/dragable_camera.gd" id="1_fji40"]
+[ext_resource type="Script" uid="uid://dj3qubsvd6stq" path="res://scenes/camera/dragable_camera.gd" id="1_fji40"]
 
 [node name="Camera" type="Camera2D"]
 script = ExtResource("1_fji40")

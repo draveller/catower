@@ -1,0 +1,154 @@
+[gd_scene load_steps=29 format=3 uid="uid://bjpr1wyjip1v8"]
+
+[ext_resource type="PackedScene" uid="uid://ci5wpqvuu7n88" path="res://scenes/character/base_monster.tscn" id="1_mqty8"]
+[ext_resource type="Texture2D" uid="uid://x3wpv1cfcx6s" path="res://assets/sprites/pinky/attack/Attack 01.png" id="2_j40ac"]
+[ext_resource type="Texture2D" uid="uid://b0cjcqujriiq7" path="res://assets/sprites/pinky/attack/Attack 02.png" id="3_6qwbt"]
+[ext_resource type="Texture2D" uid="uid://b2peskrrky43x" path="res://assets/sprites/pinky/attack/Attack 03.png" id="4_yuv2v"]
+[ext_resource type="Texture2D" uid="uid://dh531ytiopc18" path="res://assets/sprites/pinky/attack/Attack 04.png" id="5_pebqt"]
+[ext_resource type="Texture2D" uid="uid://bkhbq4a8myem" path="res://assets/sprites/pinky/dead/Dead Hit 01.png" id="6_5lxw2"]
+[ext_resource type="Texture2D" uid="uid://c8npw8o64bsr3" path="res://assets/sprites/pinky/dead/Dead Hit 02.png" id="7_qhe4d"]
+[ext_resource type="Texture2D" uid="uid://occg6c5u0t2j" path="res://assets/sprites/pinky/dead/Dead Hit 03.png" id="8_f4e40"]
+[ext_resource type="Texture2D" uid="uid://3ak5y2mydb3f" path="res://assets/sprites/pinky/dead/Dead Hit 04.png" id="9_bc64r"]
+[ext_resource type="Texture2D" uid="uid://wk72vfl1dg8b" path="res://assets/sprites/pinky/hurt/Hit 01.png" id="10_pt7jv"]
+[ext_resource type="Texture2D" uid="uid://ctr7hhsrrp7uk" path="res://assets/sprites/pinky/hurt/Hit 02.png" id="11_gpy7c"]
+[ext_resource type="Texture2D" uid="uid://dosrn2qw18ec3" path="res://assets/sprites/pinky/hurt/Hit 03.png" id="12_n4mru"]
+[ext_resource type="Texture2D" uid="uid://dby7wfu2iqjvf" path="res://assets/sprites/pinky/hurt/Hit 04.png" id="13_upnkt"]
+[ext_resource type="Texture2D" uid="uid://cbtypywnjirxl" path="res://assets/sprites/pinky/idle/Idle 01.png" id="14_lu30d"]
+[ext_resource type="Texture2D" uid="uid://dwwusg0tb6vla" path="res://assets/sprites/pinky/idle/Idle 02.png" id="15_ferte"]
+[ext_resource type="Texture2D" uid="uid://c6mjv2umf84qs" path="res://assets/sprites/pinky/idle/Idle 03.png" id="16_l2qv2"]
+[ext_resource type="Texture2D" uid="uid://cwm7lth06nu1h" path="res://assets/sprites/pinky/idle/Idle 04.png" id="17_ovduv"]
+[ext_resource type="Texture2D" uid="uid://cqjmqxq4hhgs2" path="res://assets/sprites/pinky/idle/Idle 05.png" id="18_jhoiw"]
+[ext_resource type="Texture2D" uid="uid://12ryvgqwvlc6" path="res://assets/sprites/pinky/idle/Idle 06.png" id="19_gwbfy"]
+[ext_resource type="Texture2D" uid="uid://yhurrgxjr2c8" path="res://assets/sprites/pinky/idle/Idle 07.png" id="20_js5qy"]
+[ext_resource type="Texture2D" uid="uid://cnytjndqk5thk" path="res://assets/sprites/pinky/idle/Idle 08.png" id="21_46v5j"]
+[ext_resource type="Texture2D" uid="uid://bwyd51kadvwvk" path="res://assets/sprites/pinky/move/Run 01.png" id="22_u2bwi"]
+[ext_resource type="Texture2D" uid="uid://soh5su52fttd" path="res://assets/sprites/pinky/move/Run 02.png" id="23_fct0j"]
+[ext_resource type="Texture2D" uid="uid://dbe08303wfg3g" path="res://assets/sprites/pinky/move/Run 03.png" id="24_y27vt"]
+[ext_resource type="Texture2D" uid="uid://bb34egb3pf4dr" path="res://assets/sprites/pinky/move/Run 04.png" id="25_rhjce"]
+[ext_resource type="Texture2D" uid="uid://dsgi6ywpahcrd" path="res://assets/sprites/pinky/move/Run 05.png" id="26_mqx1g"]
+[ext_resource type="Texture2D" uid="uid://c3to6b1wi87or" path="res://assets/sprites/pinky/move/Run 06.png" id="27_gv6hp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8b72n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_j40ac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6qwbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yuv2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pebqt")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_5lxw2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qhe4d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_f4e40")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bc64r")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_pt7jv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gpy7c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_n4mru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_upnkt")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_lu30d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ferte")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_l2qv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ovduv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_jhoiw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_gwbfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_js5qy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_46v5j")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_u2bwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_fct0j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_y27vt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_rhjce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_mqx1g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_gv6hp")
+}],
+"loop": true,
+"name": &"move",
+"speed": 8.0
+}]
+
+[node name="Pinky" instance=ExtResource("1_mqty8")]
+team = "right"
+texture_facing = -1
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_8b72n")
+animation = &"attack"
+frame = 3
+frame_progress = 1.0
+
+[node name="CollisionShape2D" parent="AttackArea" index="0"]
+position = Vector2(1.5, 2.5)
+
+[node name="CollisionShape2D" parent="HurtArea" index="0"]
+position = Vector2(1.5, 3)
+
+[node name="InvincibleTimer" parent="." index="5"]
+wait_time = 0.15

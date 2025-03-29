@@ -28,6 +28,8 @@ func _ready():
     self.limit_right = camera_limit_right
     # 确保初始位置在有效范围内
     _clamp_camera_position()
+    SignalBus.connect("battle_entered", _on_battle_entered)
+
 
 func _input(event: InputEvent) -> void:
     if not enabled_drag:
@@ -86,6 +88,5 @@ func _clamp_camera_position() -> void:
         camera_limit_right - half_view_width)
     self.position.x = new_x
 
-
-func _on_bettle_entered() -> void:
+func _on_battle_entered()->void:
     enabled_drag=true
